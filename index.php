@@ -633,13 +633,6 @@ $con = connection();
       <i class="fa-brands fa-facebook"></i>
       <i class="fa-brands fa-instagram"></i>
     </div>
-    <div class="credit">
-      <p>Designed By <a href="#">Group 6</a></p>
-      <p>Leader: Guevarra, Walter</p>
-      <p>Villar, Mae Charlize</p>
-      <p>Gregorio, Jhon Edgar</p>
-      <p>Gardona, Pollen Marie</p>
-    </div>
     <div class="copyright">
       <p>&copy;Flight Booking Travel and Tours</p>
     </div>
