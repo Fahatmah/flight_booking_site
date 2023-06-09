@@ -33,7 +33,7 @@ $con = connection();
     rel="stylesheet">
   <!-- Google Fonts -->
 
-  <title>Flight Booking Site</title>
+  <title>Booking Reservation for Travel and Tours</title>
 
   <link rel="stylesheet" href="style.css" />
   <!-- <link rel="stylesheet" href="css/modal.css" /> -->
@@ -69,7 +69,7 @@ $con = connection();
           </li>
         </ul>
         <form class="d-flex">
-          <input class="form-control me-2" type="text" placeholder="Search" />
+          <input required class="form-control me-2" type="text" placeholder="Search" />
           <button class="btn btn-primary" type="button">Search</button>
         </form>
       </div>
@@ -105,7 +105,7 @@ $con = connection();
                 <!-- Traveler's Full Name -->
                 <div class="field">
                   <label for="travelers_name">Full Name</label>
-                  <input type="text" name="travelers_name" id="travelers_name" class="form-control" />
+                  <input required type="text" name="travelers_name" id="travelers_name" class="form-control" />
                 </div>
                 <br />
                 <!-- Gender -->
@@ -120,19 +120,19 @@ $con = connection();
                 <!-- Birthdate -->
                 <div class="field">
                   <label for="birthdate">Birthday</label>
-                  <input type="date" name="birthdate" id="birthdate" class="form-control" />
+                  <input required type="date" name="birthdate" id="birthdate" class="form-control" />
                 </div>
                 <br />
                 <!-- Nationality -->
                 <div class="field">
                   <label for="nationality">Nationality</label>
-                  <input type="text" name="nationality" id="nationality" class="form-control" />
+                  <input required type="text" name="nationality" id="nationality" class="form-control" />
                 </div>
                 <br />
                 <!-- Contact -->
                 <div class="field">
                   <label for="contact_number">Contact Number</label>
-                  <input type="tel" name="contact_number" id="contact_number" class="form-control" />
+                  <input required type="tel" name="contact_number" id="contact_number" class="form-control" />
                 </div>
                 <br />
               </div>
@@ -256,13 +256,13 @@ $con = connection();
                 <!-- Departure Date -->
                 <div class="field departure-date">
                   <label for="departure_date">Departure Date</label>
-                  <input type="date" name="departure_date" id="departure_date" class="form-control" />
+                  <input required type="date" name="departure_date" id="departure_date" class="form-control" />
                 </div>
                 <br />
                 <!-- Return Date -->
                 <div class="field return-date">
                   <label for="return_date">Return Date</label>
-                  <input type="date" name="return_date" id="return_date" class="form-control" />
+                  <input required type="date" name="return_date" id="return_date" class="form-control" />
                 </div>
                 <br />
                 <!-- Preferred Cabin Class -->
@@ -278,21 +278,21 @@ $con = connection();
                 <!-- Number of Passengers -->
                 <div class="field adult-passengers">
                   <label for="passenger_adults">Number of Adults:</label>
-                  <input type="number" id="passenger_adults" name="passenger_adults" min="0" value="1"
+                  <input required type="number" id="passenger_adults" name="passenger_adults" min="0" value="1"
                     class="form-control" />
                 </div>
                 <br />
                 <!-- Number of Children -->
                 <div class="field children-passengers">
                   <label for="passenger_children">Number of Children:</label>
-                  <input type="number" id="passenger_children" name="passenger_children" min="0" value="0"
+                  <input required type="number" id="passenger_children" name="passenger_children" min="0" value="0"
                     class="form-control" />
                 </div>
                 <br />
                 <!-- Number of Infants -->
                 <div class="field infants-passengers">
                   <label for="passenger_infants">Number of Infants:</label>
-                  <input type="number" id="passenger_infants" name="passenger_infants" min="0" value="0"
+                  <input required type="number" id="passenger_infants" name="passenger_infants" min="0" value="0"
                     class="form-control" />
                 </div>
                 <br />
@@ -305,17 +305,17 @@ $con = connection();
                 <h3>Passport Info</h3>
                 <div class="field">
                   <label for="passport_number">Passport Number:</label>
-                  <input type="text" id="passport_number" name="passport_number" class="form-control" />
+                  <input required type="text" id="passport_number" name="passport_number" class="form-control" />
                 </div>
                 <br />
                 <div class="field">
                   <label for="passport_expiration">Passport Expiration Date:</label>
-                  <input type="date" id="passport_expiration" name="passport_expiration" class="form-control" />
+                  <input required type="date" id="passport_expiration" name="passport_expiration" class="form-control" />
                 </div>
                 <br />
                 <div class="field">
                   <label for="country_of_issue">Country of Issue:</label>
-                  <input type="text" id="country_of_issue" name="country_of_issue" class="form-control" />
+                  <input required type="text" id="country_of_issue" name="country_of_issue" class="form-control" />
                 </div>
                 <br />
               </div>
@@ -325,22 +325,22 @@ $con = connection();
                 <h3>Payment Info</h3>
                 <div class="field">
                   <label for="cardholder_name">Cardholder Name:</label>
-                  <input type="text" id="cardholder_name" name="cardholder_name" class="form-control" />
+                  <input required type="text" id="cardholder_name" name="cardholder_name" class="form-control" />
                 </div>
                 <br />
                 <div class="field">
                   <label for="card_number">Card Number:</label>
-                  <input type="text" id="card_number" name="card_number" class="form-control" />
+                  <input required type="text" id="card_number" name="card_number" class="form-control" />
                 </div>
                 <br />
                 <div class="field">
                   <label for="expiration_date">Expiration Date:</label>
-                  <input type="text" id="expiration_date" name="expiration_date" class="form-control" />
+                  <input required type="text" id="expiration_date" name="expiration_date" class="form-control" />
                 </div>
                 <br />
                 <div class="field">
                   <label for="cvv">CVV:</label>
-                  <input type="text" id="cvv" name="cvv" class="form-control" />
+                  <input required type="text" id="cvv" name="cvv" class="form-control" />
                 </div>
                 <br />
                 <div class="field">
@@ -639,6 +639,7 @@ $con = connection();
   </footer>
 
 
+  <script src="script.js"></script>
   <script>
     const copyButton = document.getElementById('copyButton')
     copyButton.addEventListener('click', () => {

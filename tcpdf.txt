@@ -1,0 +1,136 @@
+<?php
+session_start();
+
+require_once('fpdf185/fpdf.php');
+
+
+include_once("connection.php");
+$con = connection();
+
+if (!isset($_SESSION['booking_data'])) {
+  // Handle the case when booking data is not available
+  // ...
+  exit;
+}
+
+$booking_data = $_SESSION['booking_data'];
+
+// Create a new PDF instance
+$pdf = new FPDF();
+$pdf->AddPage();
+
+// Set the font style
+$pdf->SetFont('Arial', 'B', 14);
+
+// Add a title
+$pdf->Cell(0, 10, 'Flight Booking Details', 0, 1, 'C');
+
+$pdf->Ln(5); // Add some space
+
+// Set the font style for the table header
+$pdf->SetFont('Arial', 'B', 12);
+$pdf->SetFillColor(255, 165, 0); // Set header background color
+$pdf->SetTextColor(255, 255, 255); // Set header text color
+
+// Add the table header
+$pdf->Cell(50, 10, 'Personal Information', 1, 0, 'L', true);
+$pdf->Cell(50, 10, 'Flight Details', 1, 0, 'L', true);
+$pdf->Cell(50, 10, 'Passport Information', 1, 0, 'L', true);
+$pdf->Cell(50, 10, 'Payment Information', 1, 1, 'L', true);
+
+// Reset the font style and colors for the table content
+$pdf->SetFont('Arial', '', 12);
+$pdf->SetFillColor(255, 255, 255); // Set content background color
+$pdf->SetTextColor(0, 0, 0); // Set content text color
+
+// Add the table content
+$pdf->Cell(50, 10, 'Name:', 1, 0, 'L');
+$pdf->Cell(50, 10, $booking_data['travelers_name'], 1, 0, 'L');
+$pdf->Cell(50, 10, 'Passport Number:', 1, 0, 'L');
+$pdf->Cell(50, 10, $booking_data['passport_number'], 1, 1, 'L');
+
+$pdf->Cell(50, 10, 'Gender:', 1, 0, 'L');
+$pdf->Cell(50, 10, $booking_data['gender'], 1, 0, 'L');
+$pdf->Cell(50, 10, 'Passport Expiration Date:', 1, 0, 'L');
+$pdf->Cell(50, 10, $booking_data['passport_expiration'], 1, 1, 'L');
+
+$pdf->Cell(50, 10, 'Birthdate:', 1, 0, 'L');
+$pdf->Cell(50, 10, $booking_data['birthdate'], 1, 0, 'L');
+$pdf->Cell(50, 10, 'Country of Issue:', 1, 0, 'L');
+$pdf->Cell(50, 10, $booking_data['country_of_issue'], 1, 1, 'L');
+
+$pdf->Cell(50, 10, 'Nationality:', 1, 0, 'L');
+$pdf->Cell(50, 10, $booking_data['nationality'], 1, 0, 'L');
+$pdf->Cell(50, 10, '', 1, 0, 'L'); // Empty cell for layout
+$pdf->Cell(50, 10, '', 1, 1, 'L'); // Empty cell for layout
+
+$pdf->Cell(50, 10, 'Contact Number:', 1, 0, 'L');
+$pdf->Cell(50, 10, $booking_data['contact_number'], 1, 0, 'L');
+$pdf->Cell(50, 10, '', 1, 0, 'L'); // Empty cell for layout
+$pdf->Cell(50, 10, '', 1, 1, 'L'); // Empty cell for layout
+
+$pdf->Cell(50, 10, 'Departure Airport:', 1, 0, 'L');
+$pdf->Cell(50, 10, $booking_data['departure_airport'], 1, 0, 'L');
+$pdf->Cell(50, 10, '', 1, 0, 'L'); // Empty cell for layout
+$pdf->Cell(50, 10, '', 1, 1, 'L'); // Empty cell for layout
+
+$pdf->Cell(50, 10, 'Destination Airport:', 1, 0, 'L');
+$pdf->Cell(50, 10, $booking_data['destination_airport'], 1, 0, 'L');
+$pdf->Cell(50, 10, '', 1, 0, 'L'); // Empty cell for layout
+$pdf->Cell(50, 10, '', 1, 1, 'L'); // Empty cell for layout
+
+$pdf->Cell(50, 10, 'Departure Date:', 1, 0, 'L');
+$pdf->Cell(50, 10, $booking_data['departure_date'], 1, 0, 'L');
+$pdf->Cell(50, 10, '', 1, 0, 'L'); // Empty cell for layout
+$pdf->Cell(50, 10, '', 1, 1, 'L'); // Empty cell for layout
+
+$pdf->Cell(50, 10, 'Return Date:', 1, 0, 'L');
+$pdf->Cell(50, 10, $booking_data['return_date'], 1, 0, 'L');
+$pdf->Cell(50, 10, '', 1, 0, 'L'); // Empty cell for layout
+$pdf->Cell(50, 10, '', 1, 1, 'L'); // Empty cell for layout
+
+$pdf->Cell(50, 10, 'Cabin Class:', 1, 0, 'L');
+$pdf->Cell(50, 10, $booking_data['cabin_class'], 1, 0, 'L');
+$pdf->Cell(50, 10, '', 1, 0, 'L'); // Empty cell for layout
+$pdf->Cell(50, 10, '', 1, 1, 'L'); // Empty cell for layout
+
+$pdf->Cell(50, 10, 'Number of Adults:', 1, 0, 'L');
+$pdf->Cell(50, 10, $booking_data['passenger_adults'], 1, 0, 'L');
+$pdf->Cell(50, 10, '', 1, 0, 'L'); // Empty cell for layout
+$pdf->Cell(50, 10, '', 1, 1, 'L'); // Empty cell for layout
+
+$pdf->Cell(50, 10, 'Number of Children:', 1, 0, 'L');
+$pdf->Cell(50, 10, $booking_data['passenger_children'], 1, 0, 'L');
+$pdf->Cell(50, 10, '', 1, 0, 'L'); // Empty cell for layout
+$pdf->Cell(50, 10, '', 1, 1, 'L'); // Empty cell for layout
+
+$pdf->Cell(50, 10, 'Number of Infants:', 1, 0, 'L');
+$pdf->Cell(50, 10, $booking_data['passenger_infants'], 1, 0, 'L');
+$pdf->Cell(50, 10, '', 1, 0, 'L'); // Empty cell for layout
+$pdf->Cell(50, 10, '', 1, 1, 'L'); // Empty cell for layout
+
+$pdf->Cell(50, 10, '', 1, 0, 'L'); // Empty cell for layout
+$pdf->Cell(50, 10, '', 1, 0, 'L'); // Empty cell for layout
+$pdf->Cell(50, 10, '', 1, 0, 'L'); // Empty cell for layout
+$pdf->Cell(50, 10, '', 1, 1, 'L'); // Empty cell for layout
+
+$pdf->Cell(50, 10, '', 1, 0, 'L'); // Empty cell for layout
+$pdf->Cell(50, 10, '', 1, 0, 'L'); // Empty cell for layout
+$pdf->Cell(50, 10, '', 1, 0, 'L'); // Empty cell for layout
+$pdf->Cell(50, 10, '', 1, 1, 'L'); // Empty cell for layout
+
+$pdf->Cell(50, 10, '', 1, 0, 'L'); // Empty cell for layout
+$pdf->Cell(50, 10, '', 1, 0, 'L'); // Empty cell for layout
+$pdf->Cell(50, 10, '', 1, 0, 'L'); // Empty cell for layout
+$pdf->Cell(50, 10, '', 1, 1, 'L'); // Empty cell for layout
+
+$pdf->Cell(50, 10, '', 1, 0, 'L'); // Empty cell for layout
+$pdf->Cell(50, 10, '', 1, 0, 'L'); // Empty cell for layout
+$pdf->Cell(50, 10, '', 1, 0, 'L'); // Empty cell for layout
+$pdf->Cell(50, 10, '', 1, 1, 'L'); // Empty cell for layout
+
+// Save the PDF to a file
+$pdf->Output('flight_booking_details.pdf', 'F');
+
+// Close the PDF instance
+$pdf->Close();

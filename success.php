@@ -1,5 +1,7 @@
 <?php
 
+require_once('fpdf185/fpdf.php');
+
 session_start();
 
 include_once("connection.php");
@@ -151,7 +153,7 @@ $booking_data = $_SESSION['booking_data'];
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" id="copyButton">Copy</button>
+            <button type="button" class="btn btn-primary" id="pdfButton">Print</button>
             <a href="index.php" class="btn btn-danger">Book another flight</a>
           </div>
         </div>
@@ -161,22 +163,26 @@ $booking_data = $_SESSION['booking_data'];
 
 
   <script>
-    const copyButton = document.getElementById('copyButton')
-    copyButton.addEventListener('click', () => {
-      let flight_book_details =
-        document.getElementsByClassName('modal-body')[0].innerText
-      copyToClipboard(flight_book_details)
-    })
+    const pdfButton = document.getElementById('pdfButton');
+    pdfButton.addEventListener('click', () => {
+      fetch('generate_pdf.php')
+        .then(response => response.blob())
+        .then(blob => {
+          // Create a download link for the PDF
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement('a');
+          link.href = url;
+          const filename = '<?php echo $booking_data['travelers_name']; ?>_Flight_Booking_Details.pdf';
+          link.download = filename;
+          link.click();
 
-    function copyToClipboard(text) {
-      let tempEl = document.createElement('textarea')
-      tempEl.value = text
-      document.body.appendChild(tempEl)
-      tempEl.select()
-      document.execCommand('copy')
-      document.body.removeChild(tempEl)
-      alert('Flight Book Details : Copied to clipboard')
-    }
+          // Clean up the URL object after the download
+          URL.revokeObjectURL(url);
+        })
+        .catch(error => {
+          console.error('Error generating PDF:', error);
+        });
+    });
   </script>
 </body>
 
