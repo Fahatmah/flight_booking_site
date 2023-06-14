@@ -104,13 +104,13 @@ $con = connection();
                 <h3>Personal Information</h3>
                 <!-- Traveler's Full Name -->
                 <div class="field">
-                  <label for="travelers_name">Full Name</label>
+                  <label for="travelers_name">Full Name <span class="required">*</span></label>
                   <input required type="text" name="travelers_name" id="travelers_name" class="form-control" />
                 </div>
                 <br />
                 <!-- Gender -->
                 <div class="field">
-                  <label for="gender">Gender</label>
+                  <label for="gender">Gender <span class="required">*</span></label>
                   <select name="gender" id="gender" class="form-control">
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
@@ -119,19 +119,19 @@ $con = connection();
                 <br />
                 <!-- Birthdate -->
                 <div class="field">
-                  <label for="birthdate">Birthday</label>
+                  <label for="birthdate">Birthday <span class="required">*</span></label>
                   <input required type="date" name="birthdate" id="birthdate" class="form-control" />
                 </div>
                 <br />
                 <!-- Nationality -->
                 <div class="field">
-                  <label for="nationality">Nationality</label>
+                  <label for="nationality">Nationality <span class="required">*</span></label>
                   <input required type="text" name="nationality" id="nationality" class="form-control" />
                 </div>
                 <br />
                 <!-- Contact -->
                 <div class="field">
-                  <label for="contact_number">Contact Number</label>
+                  <label for="contact_number">Contact Number <span class="required">*</span></label>
                   <input required type="tel" name="contact_number" id="contact_number" class="form-control" />
                 </div>
                 <br />
@@ -143,7 +143,7 @@ $con = connection();
                 <h3>Flight Details</h3>
                 <!-- Departure Airport -->
                 <div class="field">
-                  <label for="departure_airport">Departure Airport</label>
+                  <label for="departure_airport">Departure Airport <span class="required">*</span></label>
                   <select id="departure_airport" name="departure_airport" class="form-control">
                     <option value="MNL">
                       Manila Ninoy Aquino International Airport (MNL)
@@ -165,7 +165,7 @@ $con = connection();
                 <br />
                 <!-- Destination Airport -->
                 <div class="field">
-                  <label for="destination_airport">Destination Airport</label>
+                  <label for="destination_airport">Destination Airport <span class="required">*</span></label>
                   <select id="destination_airport" name="destination_airport" class="form-control">
                     <optgroup label="France">
                       <option value="CDG">
@@ -255,19 +255,19 @@ $con = connection();
                 <br />
                 <!-- Departure Date -->
                 <div class="field departure-date">
-                  <label for="departure_date">Departure Date</label>
+                  <label for="departure_date">Departure Date <span class="required">*</span></label>
                   <input required type="date" name="departure_date" id="departure_date" class="form-control" />
                 </div>
                 <br />
                 <!-- Return Date -->
                 <div class="field return-date">
-                  <label for="return_date">Return Date</label>
+                  <label for="return_date">Return Date <span class="required">*</span></label>
                   <input required type="date" name="return_date" id="return_date" class="form-control" />
                 </div>
                 <br />
                 <!-- Preferred Cabin Class -->
                 <div class="field preffered-cabin-class">
-                  <label for="cabin_class">Preferred Cabin Class:</label>
+                  <label for="cabin_class">Preferred Cabin Class: <span class="required">*</span></label>
                   <select id="cabin_class" name="cabin_class" class="form-control">
                     <option value="economy">Economy</option>
                     <option value="business">Business</option>
@@ -277,21 +277,21 @@ $con = connection();
                 <br />
                 <!-- Number of Passengers -->
                 <div class="field adult-passengers">
-                  <label for="passenger_adults">Number of Adults:</label>
+                  <label for="passenger_adults">Number of Adults: <span class="required">*</span></label>
                   <input required type="number" id="passenger_adults" name="passenger_adults" min="0" value="1"
                     class="form-control" />
                 </div>
                 <br />
                 <!-- Number of Children -->
                 <div class="field children-passengers">
-                  <label for="passenger_children">Number of Children:</label>
+                  <label for="passenger_children">Number of Children: <span class="required">*</span></label>
                   <input required type="number" id="passenger_children" name="passenger_children" min="0" value="0"
                     class="form-control" />
                 </div>
                 <br />
                 <!-- Number of Infants -->
                 <div class="field infants-passengers">
-                  <label for="passenger_infants">Number of Infants:</label>
+                  <label for="passenger_infants">Number of Infants: <span class="required">*</span></label>
                   <input required type="number" id="passenger_infants" name="passenger_infants" min="0" value="0"
                     class="form-control" />
                 </div>
@@ -304,17 +304,17 @@ $con = connection();
               <div class="passport-info form-control p-4">
                 <h3>Passport Info</h3>
                 <div class="field">
-                  <label for="passport_number">Passport Number:</label>
+                  <label for="passport_number">Passport Number: <span class="required">*</span></label>
                   <input required type="text" id="passport_number" name="passport_number" class="form-control" />
                 </div>
                 <br />
                 <div class="field">
-                  <label for="passport_expiration">Passport Expiration Date:</label>
+                  <label for="passport_expiration">Passport Expiration Date: <span class="required">*</span></label>
                   <input required type="date" id="passport_expiration" name="passport_expiration" class="form-control" />
                 </div>
                 <br />
                 <div class="field">
-                  <label for="country_of_issue">Country of Issue:</label>
+                  <label for="country_of_issue">Country of Issue: <span class="required">*</span></label>
                   <input required type="text" id="country_of_issue" name="country_of_issue" class="form-control" />
                 </div>
                 <br />
@@ -324,27 +324,27 @@ $con = connection();
               <div class="payment-info form-control p-4">
                 <h3>Payment Info</h3>
                 <div class="field">
-                  <label for="cardholder_name">Cardholder Name:</label>
+                  <label for="cardholder_name">Cardholder Name: <span class="required">*</span></label>
                   <input required type="text" id="cardholder_name" name="cardholder_name" class="form-control" />
                 </div>
                 <br />
                 <div class="field">
-                  <label for="card_number">Card Number:</label>
+                  <label for="card_number">Card Number: <span class="required">*</span></label>
                   <input required type="text" id="card_number" name="card_number" class="form-control" />
                 </div>
                 <br />
                 <div class="field">
-                  <label for="expiration_date">Expiration Date:</label>
+                  <label for="expiration_date">Expiration Date: <span class="required">*</span></label>
                   <input required type="text" id="expiration_date" name="expiration_date" class="form-control" />
                 </div>
                 <br />
                 <div class="field">
-                  <label for="cvv">CVV:</label>
+                  <label for="cvv">CVV: <span class="required">*</span></label>
                   <input required type="text" id="cvv" name="cvv" class="form-control" />
                 </div>
                 <br />
                 <div class="field">
-                  <label for="billing_address">Billing Address:</label>
+                  <label for="billing_address">Billing Address: <span class="required">*</span></label>
                   <textarea id="billing_address" name="billing_address" class="form-control"></textarea>
                 </div>
                 <br />
